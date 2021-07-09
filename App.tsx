@@ -7,6 +7,8 @@ import { Roboto_400Regular, Roboto_300Light, Roboto_700Bold } from '@expo-google
 import AppLoading from 'expo-app-loading';
 
 import { Routes } from './src/routes';
+import { AuthProvider } from './src/contexts/AuthContext';
+
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -19,9 +21,9 @@ export default function App() {
     return <AppLoading />
   }
   return(
-    <>
+    <AuthProvider>
       <StatusBar barStyle="dark-content" backgroundColor="transparent" translucent />
         <Routes />
-    </>
+    </AuthProvider>
   );
 }

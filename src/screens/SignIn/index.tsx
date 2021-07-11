@@ -2,7 +2,9 @@ import React, { useContext } from 'react';
 import {
   View,
   Text,
-  Button
+  TextInput,
+  Image,
+  TouchableOpacity,
 } from 'react-native';
 
 import { useNavigation } from '@react-navigation/native';
@@ -18,11 +20,23 @@ export function SignIn() {
     navigation.navigate('Home')
   }
 
+  async function handleSignUp() {
+    navigation.navigate('SignUp')
+  }
 
   return (
     <View style={styles.container}>
-        <Text>SignIn</Text>
-        <Button title="Logar" onPress={handleLogin}/>
+        <Image source={require('../../assets/logo.png')} style={styles.logo}/>
+        <View style={styles.containerInput}>
+          <TextInput placeholder="Email" autoCorrect={false} onChangeText={() => {}} style={styles.input}/>
+          <TextInput placeholder="Password" autoCorrect={false} onChangeText={() => {}} style={styles.input}/>
+          <TouchableOpacity onPress={handleLogin} style={styles.btnSubmit}>
+            <Text style={styles.txtSubmit}>Login</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={handleSignUp} style={styles.btnSignUp}>
+            <Text style={styles.txtSignUp}>Sign Up</Text>
+          </TouchableOpacity>
+        </View>
     </View>
   );
 }

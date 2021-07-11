@@ -16,8 +16,7 @@ export function Home() {
     await logout()
     navigation.navigate('SignIn')
   }
-
-  console.log(isAuthenticated)
+  
   return (
     <View style={styles.container}>
         <Text>Home</Text>

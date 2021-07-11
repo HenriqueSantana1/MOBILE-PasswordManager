@@ -6,8 +6,8 @@ export const theme = {
     },
   
     fonts: {
-      roboto300: Roboto_300Light,
-      roboto400: Roboto_400Regular,
-      roboto700: Roboto_700Bold
+      roboto300: 'Roboto_300Light',
+      roboto400: 'Roboto_400Regular',
+      roboto700: 'Roboto_700Bold'
     }
   };

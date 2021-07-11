@@ -29,7 +29,7 @@ export function SignIn() {
         <Image source={require('../../assets/logo.png')} style={styles.logo}/>
         <View style={styles.containerInput}>
           <TextInput placeholder="Email" autoCorrect={false} onChangeText={() => {}} style={styles.input}/>
-          <TextInput placeholder="Password" autoCorrect={false} onChangeText={() => {}} style={styles.input}/>
+          <TextInput placeholder="Password" secureTextEntry autoCorrect={false} onChangeText={() => {}} style={styles.input}/>
           <TouchableOpacity onPress={handleLogin} style={styles.btnSubmit}>
             <Text style={styles.txtSubmit}>Login</Text>
           </TouchableOpacity>

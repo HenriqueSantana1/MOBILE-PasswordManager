@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
     logo: {
         width: 300,
         height: 300,
-        marginTop: getStatusBarHeight() + 30
+        marginTop: getStatusBarHeight() + 10
     },
     containerInput: {
         width: '90%',

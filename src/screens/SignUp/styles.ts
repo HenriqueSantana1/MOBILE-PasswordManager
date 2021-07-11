@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
     logo: {
         width: 300,
         height: 300,
-        marginTop: getStatusBarHeight() + 30
+        marginTop: getStatusBarHeight() + 10
     },
     containerInput: {
         width: '90%',
@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
     },
     input: {
         width: '90%',
-        marginBottom: 18,
+        marginBottom: 15,
         borderColor: '#55CC88',
         color: '#222',
         borderBottomWidth: 0.5,
@@ -42,8 +42,6 @@ export const styles = StyleSheet.create({
     },
     btnSignin: {
         flexDirection: 'row',
-        position: 'absolute',
-        bottom: 15
     },
     txtSignin: {
         color: '#55CC88',

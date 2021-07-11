@@ -14,24 +14,31 @@ function AuthProvider({ children }) {
             await AsyncStorage.getItem('token')
         }
         if (token) {
-            api.defaults.headers.Authorization = `Bearer ${token}`
+            //api.defaults.headers.Authorization = `Bearer ${token}`
             setAuth(true)
         }
 
         setLoading(false)
     }, [])
 
-    async function signup() {
-        const { data: { token } } = await api.post('/signup', {
-            "name":"Henrique",
-            "email": "thalitasaaaantosc1@gmail.com",
-            "password": "h23101998"
+    async function generatePW() {
+        const { data } = await api.post('/generate', {
+            "CharNum": 15,
+            "incUp": 1,
+            "incNum": 1,
+            "incSym": 0
         })
 
-        await AsyncStorage.setItem('token', token)
-        api.defaults.headers.Authorization = `Bearer ${token}`
-        setAuth(true)
-        
+        console.log(data)
+    }
+
+    async function signup() {
+        const res = await api.post('/signup', {
+            "name":"Henrique",
+            "email": "thalitasaaaanatosc1@gmail.com",
+            "password": "h23101998"
+        })
+        console.log(res)
     }
 
     async function login() {
@@ -41,7 +48,7 @@ function AuthProvider({ children }) {
         })
 
         await AsyncStorage.setItem('token', token)
-        api.defaults.headers.Authorization = `Bearer ${token}`
+        //api.defaults.headers.Authorization = `Bearer ${token}`
         setAuth(true)
         
     }
@@ -57,7 +64,7 @@ function AuthProvider({ children }) {
     }
 
     return(
-        <Context.Provider value={{ isAuthenticated, signup, login, logout}}>
+        <Context.Provider value={{ isAuthenticated, signup, login, logout, generatePW}}>
             {children}
         </Context.Provider>
     )

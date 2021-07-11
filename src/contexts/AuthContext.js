@@ -21,6 +21,19 @@ function AuthProvider({ children }) {
         setLoading(false)
     }, [])
 
+    async function signup() {
+        const { data: { token } } = await api.post('/signup', {
+            "name":"Henrique",
+            "email": "thalitasaaaantosc1@gmail.com",
+            "password": "h23101998"
+        })
+
+        await AsyncStorage.setItem('token', token)
+        api.defaults.headers.Authorization = `Bearer ${token}`
+        setAuth(true)
+        
+    }
+
     async function login() {
         const { data: { token } } = await api.post('/signin', {
             "email": "thalitasantosc1@gmail.com",
@@ -30,6 +43,7 @@ function AuthProvider({ children }) {
         await AsyncStorage.setItem('token', token)
         api.defaults.headers.Authorization = `Bearer ${token}`
         setAuth(true)
+        
     }
 
     async function logout() {
@@ -43,7 +57,7 @@ function AuthProvider({ children }) {
     }
 
     return(
-        <Context.Provider value={{ isAuthenticated, login, logout}}>
+        <Context.Provider value={{ isAuthenticated, signup, login, logout}}>
             {children}
         </Context.Provider>
     )

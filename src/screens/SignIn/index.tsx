@@ -12,12 +12,11 @@ import { styles } from './styles';
 import { Context } from '../../contexts/AuthContext';
 
 export function SignIn() {
-  const { isAuthenticated, login } = useContext(Context)
+  const { signin } = useContext(Context)
   const navigation = useNavigation()
 
-  async function handleLogin() {
-    await login()
-    navigation.navigate('Home')
+  async function handleSignIn() {
+    await signin()
   }
 
   async function handleSignUp() {
@@ -30,13 +29,14 @@ export function SignIn() {
         <View style={styles.containerInput}>
           <TextInput placeholder="Email" autoCorrect={false} onChangeText={() => {}} style={styles.input}/>
           <TextInput placeholder="Password" secureTextEntry autoCorrect={false} onChangeText={() => {}} style={styles.input}/>
-          <TouchableOpacity onPress={handleLogin} style={styles.btnSubmit}>
+          <TouchableOpacity onPress={handleSignIn} style={styles.btnSubmit}>
             <Text style={styles.txtSubmit}>Login</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={handleSignUp} style={styles.btnSignUp}>
-            <Text style={styles.txtSignUp}>Sign Up</Text>
-          </TouchableOpacity>
         </View>
+        <TouchableOpacity onPress={handleSignUp} style={styles.btnSignUp}>
+          <Text style={{fontSize: 13, color: '#333'}}>Don't you have an account? </Text>
+          <Text style={styles.txtSignUp}>Sign Up</Text>
+        </TouchableOpacity>
     </View>
   );
 }

@@ -39,11 +39,16 @@ export const styles = StyleSheet.create({
     txtSubmit: {
         color: '#fff',
         fontSize: 18,
+        fontFamily: theme.fonts.roboto700
     },
     btnSignUp: {
-        marginTop: 10
+        flexDirection: 'row',
+        position: 'absolute',
+        bottom: 13
     },
     txtSignUp: {
-        color: '#55CC88'
+        color: '#55CC88',
+        fontFamily: theme.fonts.roboto700,
+        fontSize: 13
     }
 });

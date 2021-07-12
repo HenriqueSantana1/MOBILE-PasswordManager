@@ -1,59 +1,37 @@
 import React, { createContext, useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import AppLoading from 'expo-app-loading';
-import api from '../services/api';
+import { api, signup, generatePW } from '../services/api';
 
 const Context = createContext();
 
 function AuthProvider({ children }) {
-    const [isAuthenticated, setAuth] = useState(true);
+    const [isAuthenticated, setAuth] = useState(false);
     const [loading, setLoading ] = useState(true);
-
     useEffect(() => {
         const token = async (value) => {
             await AsyncStorage.getItem('token')
         }
-        if (token) {
-            //api.defaults.headers.Authorization = `Bearer ${token}`
+        if (token.value) {
+            console.log(token.value)
+            api.defaults.headers.Authorization = `Bearer ${token}`
             setAuth(true)
         }
-
         setLoading(false)
     }, [])
 
-    async function generatePW() {
-        const { data } = await api.post('/generate', {
-            "CharNum": 15,
-            "incUp": 1,
-            "incNum": 1,
-            "incSym": 0
-        })
-
-        console.log(data)
-    }
-
-    async function signup() {
-        const res = await api.post('/signup', {
-            "name":"Henrique",
-            "email": "thalitasaaaanatosc1@gmail.com",
-            "password": "h23101998"
-        })
-        console.log(res)
-    }
-
-    async function login() {
+    async function signin() {
         const { data: { token } } = await api.post('/signin', {
             "email": "thalitasantosc1@gmail.com",
             "password": "h23101998"
         })
-
+        console.log(token)
         await AsyncStorage.setItem('token', token)
-        //api.defaults.headers.Authorization = `Bearer ${token}`
+        api.defaults.headers.Authorization = `Bearer ${token}`
         setAuth(true)
-        
     }
-
-    async function logout() {
+    
+    async function handleLogout() {
         await AsyncStorage.removeItem('token')
         api.defaults.headers.Authorization = undefined
         setAuth(false)
@@ -64,7 +42,7 @@ function AuthProvider({ children }) {
     }
 
     return(
-        <Context.Provider value={{ isAuthenticated, signup, login, logout, generatePW}}>
+        <Context.Provider value={{ isAuthenticated, signup, signin, handleLogout, generatePW}}>
             {children}
         </Context.Provider>
     )

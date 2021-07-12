@@ -6,8 +6,7 @@ export const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        fontFamily: theme.fonts.roboto400,
-        backgroundColor: '#fff'
+        fontFamily: theme.fonts.roboto400
     },
     logo: {
         width: 300,
@@ -39,12 +38,16 @@ export const styles = StyleSheet.create({
     txtSubmit: {
         color: '#fff',
         fontSize: 18,
+        fontFamily: theme.fonts.roboto700
     },
     btnSignin: {
         flexDirection: 'row',
+        position: 'absolute',
+        bottom: 13
     },
     txtSignin: {
         color: '#55CC88',
-        fontSize: 13
+        fontFamily: theme.fonts.roboto700,
+        fontSize: 13,
     }
 });

@@ -1,11 +1,11 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { SignIn } from '../screens/SignIn';
-import { SignUp } from '../screens/SignUp';
+
+import { Home } from '../screens/Home';
 
 const { Navigator, Screen } = createStackNavigator();
 
-export function AuthRoutes() {
+export function AppRoutes() {
   return (
     <Navigator
       headerMode="none"
@@ -15,8 +15,7 @@ export function AuthRoutes() {
         }
       }}
     >
-      <Screen name="SignIn" component={ SignIn } />
-      <Screen name="SignUp" component={ SignUp } />
+      <Screen name="Home" component={ Home } />
     </Navigator>
   )
 }

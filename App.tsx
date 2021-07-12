@@ -9,7 +9,6 @@ import AppLoading from 'expo-app-loading';
 import { Routes } from './src/routes';
 import { AuthProvider } from './src/contexts/AuthContext';
 
-
 export default function App() {
   const [fontsLoaded] = useFonts({
     Roboto_300Light,

@@ -1,12 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 
 import { AuthRoutes } from './auth.routes';
+import { AppRoutes } from './app.routes';
+import { Context } from '../contexts/AuthContext';
 
 export function Routes() {
+  const { isAuthenticated } = useContext(Context)
   return (
-    <NavigationContainer>
-      <AuthRoutes />
-    </NavigationContainer>
+    isAuthenticated ? (
+      <NavigationContainer>
+        <AppRoutes />
+      </NavigationContainer>
+    ) :
+    (
+      <NavigationContainer>
+        <AuthRoutes />
+      </NavigationContainer>
+    )
   );
 }

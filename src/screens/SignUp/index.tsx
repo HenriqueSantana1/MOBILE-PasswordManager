@@ -1,11 +1,14 @@
 import React, { useContext } from 'react';
 import {
   View,
+  ScrollView,
   Text,
   TextInput,
   Image,
   TouchableOpacity,
-  KeyboardAvoidingView
+  KeyboardAvoidingView,
+  Alert,
+  Platform
 } from 'react-native';
 
 import { useNavigation } from '@react-navigation/native';
@@ -13,12 +16,21 @@ import { styles } from './styles';
 import { Context } from '../../contexts/AuthContext';
 
 export function SignUp() {
-  const { isAuthenticated, signup } = useContext(Context)
+  const { signup } = useContext(Context)
   const navigation = useNavigation()
-
+  const keyboardVerticalOffset = Platform.OS === 'ios' ? 40 : -360
+  
   async function handleSignUp() {
-    await signup()
-    navigation.navigate('SignIn')
+    const data = await signup()
+    console.log('data:')
+    console.log(data)
+    if (data) {
+      navigation.navigate('SignIn')
+    }
+    else {
+      Alert.alert('Erro:','Você já possui uma conta com este e-mail')
+      console.log('erro')
+    }
   }
 
   async function handleSignIn() {
@@ -26,7 +38,8 @@ export function SignUp() {
   }
 
   return (
-    <KeyboardAvoidingView style={{flex: 1, backgroundColor: '#FFF'}} behavior="padding">
+    <KeyboardAvoidingView style={{flex: 1, backgroundColor: '#fff'}} behavior="padding" keyboardVerticalOffset={keyboardVerticalOffset}>
+      <ScrollView contentContainerStyle={{flexGrow: 1}} style={{flex: 1}}>
       <View style={styles.container}>
         <Image source={require('../../assets/logo.png')} style={styles.logo}/>
         <View style={styles.containerInput}>
@@ -42,6 +55,7 @@ export function SignUp() {
           <Text style={styles.txtSignin}>Sign In</Text>
         </TouchableOpacity>
       </View>
+      </ScrollView>
     </KeyboardAvoidingView>
   );
 }

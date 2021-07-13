@@ -10,11 +10,10 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import { styles } from './styles';
 import { Context } from '../../contexts/AuthContext';
-
 export function SignIn() {
-  const { signin } = useContext(Context)
+  const { signin, token } = useContext(Context)
   const navigation = useNavigation()
-
+  console.log(token)
   async function handleSignIn() {
     await signin()
   }
@@ -34,7 +33,7 @@ export function SignIn() {
           </TouchableOpacity>
         </View>
         <TouchableOpacity onPress={handleSignUp} style={styles.btnSignUp}>
-          <Text style={{fontSize: 13, color: '#333'}}>Don't you have an account? </Text>
+          <Text style={{fontSize: 13, color: '#333'}}>Don't have an account? </Text>
           <Text style={styles.txtSignUp}>Sign Up</Text>
         </TouchableOpacity>
     </View>

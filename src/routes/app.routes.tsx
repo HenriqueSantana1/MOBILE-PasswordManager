@@ -2,6 +2,7 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import { Home } from '../screens/Home';
+import { Config } from '../screens/Config';
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -16,6 +17,7 @@ export function AppRoutes() {
       }}
     >
       <Screen name="Home" component={ Home } />
+      <Screen name="Config" component={ Config } />
     </Navigator>
   )
 }

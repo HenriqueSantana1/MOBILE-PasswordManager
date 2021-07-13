@@ -9,25 +9,26 @@ export const styles = StyleSheet.create({
         fontFamily: theme.fonts.roboto400,
         backgroundColor: '#fff'
     },
-    logo: {
-        width: 300,
-        height: 300,
-        marginTop: getStatusBarHeight()
-    },
-    containerInput: {
-        width: '90%',
-        alignItems: 'center'
-    },
-    input: {
-        width: '90%',
-        marginBottom: 18,
-        borderColor: '#55CC88',
-        color: '#222',
+    header: {
+        width: '100%',
+        padding: 20,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: getStatusBarHeight(),
         borderBottomWidth: 0.5,
-        borderRadius: 7,
-        padding: 10
+        borderBottomColor: '#333'
     },
-    btnSubmit: {
+    backIcon: {
+        position: 'absolute',
+        left: 10
+    },
+    txtHeader: {
+        color: '#333',
+        fontSize: 20,
+        fontFamily: theme.fonts.roboto700
+    },
+    btn: {
         marginTop: '5%',
         backgroundColor: '#55CC88',
         width: '90%',
@@ -36,19 +37,19 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         borderRadius: 7
     },
-    txtSubmit: {
+    txtBtn: {
         color: '#fff',
         fontSize: 18,
         fontFamily: theme.fonts.roboto700
     },
-    btnSignUp: {
-        flexDirection: 'row',
+    btnLogout: {
         position: 'absolute',
-        bottom: 13
-    },
-    txtSignUp: {
-        color: '#55CC88',
-        fontFamily: theme.fonts.roboto700,
-        fontSize: 13
+        bottom: 15,
+        backgroundColor: '#55CC88',
+        width: '90%',
+        height: 45,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 7
     }
 });

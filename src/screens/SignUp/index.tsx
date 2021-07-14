@@ -29,10 +29,6 @@ export function SignUp() {
     if (data) {
       navigation.navigate('SignIn')
     }
-    else {
-      Alert.alert('Erro:','Você já possui uma conta com este e-mail')
-      console.log('erro')
-    }
   }
 
   async function handleSignIn() {

@@ -11,15 +11,16 @@ export const styles = StyleSheet.create({
     logo: {
         width: 300,
         height: 300,
-        marginTop: getStatusBarHeight() + 10
+        marginTop: getStatusBarHeight() + 15
     },
     containerInput: {
+        marginTop: 15,
         width: '90%',
         alignItems: 'center'
     },
     input: {
         width: '90%',
-        marginBottom: 15,
+        marginBottom: 18,
         borderColor: '#55CC88',
         color: '#222',
         borderBottomWidth: 0.5,

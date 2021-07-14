@@ -7,11 +7,11 @@ function AuthProvider({ children }) {
     const [isAuthenticated, setAuth] = useState(false);
     const [token, setToken] = useState();
 
-    async function signup() {
+    async function signup(name, email, password) {
         const res = await api.post('/signup', {
-            "name":"Henrique",
-            "email": "aaaaaaaaaaaaaaaaaaaaaaaa@gmail.com",
-            "password": "h23101998"
+            "name": name,
+            "email": email,
+            "password": password
         }).then(res => {
             console.log('data')
             console.log(res.data)
@@ -24,10 +24,10 @@ function AuthProvider({ children }) {
         return res
     }
     
-    async function signin() {
+    async function signin(email, password) {
         const { data: { token } } = await api.post('/signin', {
-            "email": "thalitasantosc1@gmail.com",
-            "password": "h23101998"
+            "email": email,
+            "password": password
         })
         setToken(token)
         setAuth(true)
@@ -64,7 +64,7 @@ function AuthProvider({ children }) {
         return res.data.pw
     }
 
-    async function add() {
+    async function add(title, password, login) {
         const reqHeaders = {
             'headers': {
                 'Content-Type': 'application/json',
@@ -73,16 +73,15 @@ function AuthProvider({ children }) {
               }
         }
         const res = await api.post('/add', {
-            "title": "teste1",
-            "password": "H@t14062017",
-            "login": "henrique2310"
+            "title": title,
+            "password": password,
+            "login": login
         }, reqHeaders)
         console.log(res)
         return res
     }
 
-    async function update() {
-        let id = '60e748b0e2adf38781b5713a'
+    async function update(id, password) {
         const reqHeaders = {
             'headers': {
                 'Content-Type': 'application/json',
@@ -91,14 +90,13 @@ function AuthProvider({ children }) {
               }
         }
         const res = await api.put(`/update/${id}`, {
-            "password":"H@t1aaa406"
+            "password": password
         }, reqHeaders)
         console.log(res)
         return res
     }
 
-    async function remove() {
-        let id = '60e748b0e2adf38781b5713a'
+    async function remove(id) {
         const reqHeaders = {
             'headers': {
                 'Content-Type': 'application/json',
@@ -111,17 +109,17 @@ function AuthProvider({ children }) {
         return res
     }
 
-    async function generatePW() {
+    async function generatePW(CharNum, up, num, sym) {
         const { data } = await api.post('/generate', {
-            "CharNum": 15,
-            "incUp": 1,
-            "incNum": 1,
-            "incSym": 0
+            "CharNum": CharNum,
+            "incUp": up,
+            "incNum": num,
+            "incSym": sym
         })
         console.log(data)
     }
 
-    async function decrypt() {
+    async function decrypt(content, iv) {
         const reqHeaders = {
             'headers': {
                 'Content-Type': 'application/json',
@@ -130,8 +128,8 @@ function AuthProvider({ children }) {
               }
         }
         const res = await api.post('/decrypt',     {
-            "content": "ef7042bdc3d538",
-            "iv": "c71f2ea5eb3e366093dea1064a99ed63"
+            "content": content,
+            "iv": iv
           }, reqHeaders)
         console.log(res.data)
         return res

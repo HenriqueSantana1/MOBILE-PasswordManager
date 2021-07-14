@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import {
   View,
   ScrollView,
@@ -17,13 +17,15 @@ import { Context } from '../../contexts/AuthContext';
 
 export function SignUp() {
   const { signup } = useContext(Context)
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [senha, setSenha] = useState('')
+
   const navigation = useNavigation()
   const keyboardVerticalOffset = Platform.OS === 'ios' ? 40 : -360
   
   async function handleSignUp() {
-    const data = await signup()
-    console.log('data:')
-    console.log(data)
+    const data = await signup(name, email, senha)
     if (data) {
       navigation.navigate('SignIn')
     }
@@ -43,9 +45,9 @@ export function SignUp() {
       <View style={styles.container}>
         <Image source={require('../../assets/logo.png')} style={styles.logo}/>
         <View style={styles.containerInput}>
-          <TextInput placeholder="Nome" autoCorrect={false} onChangeText={() => {}} style={styles.input}/>
-          <TextInput placeholder="Email" autoCorrect={false} onChangeText={() => {}} style={styles.input}/>
-          <TextInput placeholder="Password" secureTextEntry autoCorrect={false} onChangeText={() => {}} style={styles.input}/>
+          <TextInput placeholder="Nome" autoCorrect={false} onChangeText={text => setName(text)} style={styles.input}/>
+          <TextInput placeholder="Email" autoCorrect={false} onChangeText={text => setEmail(text)} style={styles.input}/>
+          <TextInput placeholder="Password" secureTextEntry autoCorrect={false} onChangeText={text => setSenha(text)} style={styles.input}/>
           <TouchableOpacity onPress={handleSignUp} style={styles.btnSubmit}>
             <Text style={styles.txtSubmit}>Create Account</Text>
           </TouchableOpacity>

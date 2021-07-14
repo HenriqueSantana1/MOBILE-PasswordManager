@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import {
   View,
   Text,
@@ -10,12 +10,18 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import { styles } from './styles';
 import { Context } from '../../contexts/AuthContext';
+
+
+
 export function SignIn() {
   const { signin, token } = useContext(Context)
   const navigation = useNavigation()
-  console.log(token)
+
+  const [email, setEmail] = useState('')
+  const [senha, setSenha] = useState('')
+
   async function handleSignIn() {
-    await signin()
+    await signin(email, senha)
   }
 
   async function handleSignUp() {
@@ -26,8 +32,8 @@ export function SignIn() {
     <View style={styles.container}>
         <Image source={require('../../assets/logo.png')} style={styles.logo}/>
         <View style={styles.containerInput}>
-          <TextInput placeholder="Email" autoCorrect={false} onChangeText={() => {}} style={styles.input}/>
-          <TextInput placeholder="Password" secureTextEntry autoCorrect={false} onChangeText={() => {}} style={styles.input}/>
+          <TextInput placeholder="Email" autoCorrect={false} onChangeText={text => setEmail(text)} style={styles.input}/>
+          <TextInput placeholder="Password" secureTextEntry autoCorrect={false} onChangeText={text => setSenha(text)} style={styles.input}/>
           <TouchableOpacity onPress={handleSignIn} style={styles.btnSubmit}>
             <Text style={styles.txtSubmit}>Login</Text>
           </TouchableOpacity>

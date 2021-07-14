@@ -15,6 +15,10 @@ export function Home() {
   function handleConfig() {
     navigation.navigate('Config')
   }
+
+  async function handleAdd() {
+    add('teste', 'teste', 'teste')
+  }
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -26,7 +30,7 @@ export function Home() {
       <TouchableOpacity style={styles.btn} onPress={handleLogout}>
         <Text style={styles.txtBtn}>Logout</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={add} style={styles.btnAdd}> 
+      <TouchableOpacity onPress={handleAdd} style={styles.btnAdd}> 
         <Icon size={18} name="plus" color="#fff" /> 
       </TouchableOpacity>
     </View>

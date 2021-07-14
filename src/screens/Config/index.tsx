@@ -19,7 +19,7 @@ export function Config() {
   }
 
   async function handleGeneratePW() {
-    await generatePW
+    await generatePW(15, 1, 1, 1)
   }
 
   return (
@@ -30,7 +30,7 @@ export function Config() {
         </TouchableOpacity>
         <Text style={styles.txtHeader}>Configurações</Text>
       </View>
-      <TouchableOpacity style={styles.btn} onPress={generatePW}>
+      <TouchableOpacity style={styles.btn} onPress={handleGeneratePW}>
         <Text style={styles.txtBtn}>Gerar senha aleatória</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.btnLogout} onPress={handleLogout}>

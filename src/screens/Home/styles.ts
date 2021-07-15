@@ -11,21 +11,47 @@ export const styles = StyleSheet.create({
     },
     header: {
         width: '100%',
-        padding: 20,
+        paddingHorizontal: 20,
+        paddingVertical: 15,
         flexDirection: 'row',
-        justifyContent: 'space-between',
-        marginTop: getStatusBarHeight() + 10,
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: getStatusBarHeight(),
         borderBottomWidth: 0.5,
-        borderBottomColor: '#333'
+        borderBottomColor: '#eee'
+    },
+    listContainer: {
+        flex: 1,
+        alignItems: 'center',
+    },
+    list: {
+        marginTop: '5%',
+        width: '90%',
+        alignItems: 'center',
+        borderWidth: 2,
+        borderRadius: 4
+    },
+    title: {
+        fontFamily: theme.fonts.roboto700,
+        fontSize: 16
+    },
+    txtPW: {
+        fontFamily: theme.fonts.roboto400,
+        fontSize: 13
     },
     txtHeader: {
         color: '#333',
         fontSize: 20,
         fontFamily: theme.fonts.roboto700
     },
+    configIcon: {
+        position: 'absolute',
+        right: 10,
+        paddingHorizontal: 10 
+    },
     btn: {
         marginTop: '5%',
-        backgroundColor: '#55CC88',
+        backgroundColor: theme.colors.primary,
         width: '90%',
         height: 45,
         alignItems: 'center',
@@ -47,6 +73,6 @@ export const styles = StyleSheet.create({
         bottom: 25,
         borderRadius: 50,
         color: '#fff',
-        backgroundColor: '#55CC88'
+        backgroundColor: theme.colors.primary
     }
 });

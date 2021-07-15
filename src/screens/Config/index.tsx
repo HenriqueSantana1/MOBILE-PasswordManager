@@ -26,7 +26,7 @@ export function Config() {
     <View style={styles.container}>
       <View style={styles.header}>
         <TouchableOpacity style={styles.backIcon} onPress={handleBack}>
-            <Icon size={22} name="angle-left" color="#333" /> 
+            <Icon size={24} name="angle-left" color="#333" /> 
         </TouchableOpacity>
         <Text style={styles.txtHeader}>Configurações</Text>
       </View>

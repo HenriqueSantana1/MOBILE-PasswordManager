@@ -22,7 +22,7 @@ export const styles = StyleSheet.create({
     input: {
         width: '90%',
         marginBottom: 18,
-        borderColor: '#55CC88',
+        borderColor: theme.colors.primary,
         color: '#222',
         borderBottomWidth: 0.5,
         borderRadius: 7,
@@ -30,7 +30,7 @@ export const styles = StyleSheet.create({
     },
     btnSubmit: {
         marginTop: '5%',
-        backgroundColor: '#55CC88',
+        backgroundColor: theme.colors.primary,
         width: '90%',
         height: 45,
         alignItems: 'center',
@@ -48,7 +48,7 @@ export const styles = StyleSheet.create({
         bottom: 13
     },
     txtSignUp: {
-        color: '#55CC88',
+        color: theme.colors.primary,
         fontFamily: theme.fonts.roboto700,
         fontSize: 13
     }

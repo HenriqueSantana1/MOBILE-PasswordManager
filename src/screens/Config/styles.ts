@@ -11,17 +11,19 @@ export const styles = StyleSheet.create({
     },
     header: {
         width: '100%',
-        padding: 20,
+        paddingHorizontal: 20,
+        paddingVertical: 15,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
         marginTop: getStatusBarHeight(),
         borderBottomWidth: 0.5,
-        borderBottomColor: '#333'
+        borderBottomColor: '#eee'
     },
     backIcon: {
         position: 'absolute',
-        left: 10
+        left: 10,
+        paddingHorizontal: 10 
     },
     txtHeader: {
         color: '#333',
@@ -30,7 +32,7 @@ export const styles = StyleSheet.create({
     },
     btn: {
         marginTop: '5%',
-        backgroundColor: '#55CC88',
+        backgroundColor: theme.colors.primary,
         width: '90%',
         height: 45,
         alignItems: 'center',
@@ -45,7 +47,7 @@ export const styles = StyleSheet.create({
     btnLogout: {
         position: 'absolute',
         bottom: 15,
-        backgroundColor: '#55CC88',
+        backgroundColor: theme.colors.primary,
         width: '90%',
         height: 45,
         alignItems: 'center',

@@ -25,6 +25,8 @@ function AuthProvider({ children }) {
     }
     
     async function signin(email, password) {
+        console.log(email)
+        console.log(password)
         const { data: { token } } = await api.post('/signin', {
             "email": email,
             "password": password
@@ -131,7 +133,6 @@ function AuthProvider({ children }) {
             "content": content,
             "iv": iv
           }, reqHeaders)
-        console.log(res.data)
         return res
     }
 

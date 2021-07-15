@@ -38,8 +38,8 @@ export function SignIn() {
         <View style={styles.container}>
           <Image source={require('../../assets/logo.png')} style={styles.logo}/>
           <View style={styles.containerInput}>
-            <TextInput placeholder="Email" autoCorrect={false} onChangeText={text => setEmail(text)} style={styles.input}/>
-            <TextInput placeholder="Password" secureTextEntry autoCorrect={false} onChangeText={text => setSenha(text)} style={styles.input}/>
+            <TextInput placeholder="Email" autoCorrect={false} autoCompleteType='email' autoCapitalize="none" onChangeText={text => setEmail(text)} style={styles.input}/>
+            <TextInput placeholder="Password" secureTextEntry autoCapitalize="none" autoCorrect={false} onChangeText={text => setSenha(text)} style={styles.input}/>
             <TouchableOpacity onPress={handleSignIn} style={styles.btnSubmit}>
               <Text style={styles.txtSubmit}>Login</Text>
             </TouchableOpacity>

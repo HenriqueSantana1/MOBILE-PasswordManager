@@ -2,7 +2,11 @@ import { Roboto_300Light, Roboto_400Regular, Roboto_700Bold } from "@expo-google
 
 export const theme = {
     colors: {
-      primary: '#55EFE0',
+      primary: '#50d090',
+      secondary: '#3dad84',
+      light: '#e6f5ed',
+      medium: '#567568',
+      dark: '#3c403e'
     },
   
     fonts: {

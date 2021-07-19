@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         fontFamily: theme.fonts.roboto400,
-        backgroundColor: '#fff'
+        backgroundColor: theme.colors.light
     },
     header: {
         width: '100%',
@@ -28,12 +28,25 @@ export const styles = StyleSheet.create({
         marginTop: '5%',
         width: '90%',
         alignItems: 'center',
-        borderWidth: 2,
-        borderRadius: 4
+        borderWidth: 1,
+        borderTopLeftRadius: 4,
+        borderTopRightRadius: 4,
+        backgroundColor: theme.colors.dark,
+        padding: 5
     },
     title: {
         fontFamily: theme.fonts.roboto700,
-        fontSize: 16
+        fontSize: 18,
+        color: '#fff'
+    },
+    passwordView: {
+        width: '90%',
+        alignItems: 'center',
+        borderWidth: 1,
+        borderTopWidth: 0,
+        borderBottomLeftRadius: 4,
+        borderBottomRightRadius: 4,
+        padding: 10
     },
     txtPW: {
         fontFamily: theme.fonts.roboto400,

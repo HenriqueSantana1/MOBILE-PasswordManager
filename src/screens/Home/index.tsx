@@ -52,9 +52,11 @@ export function Home() {
         <View style={styles.listContainer}>
           <TouchableOpacity style={styles.list}>
             <Text style={styles.title}>{item.title}</Text>
+          </TouchableOpacity>
+          <View style={styles.passwordView}>
             {(item.login!==undefined) ? <Text style={styles.txtPW}>Login: {item.login}</Text> : null}
             <Text style={styles.txtPW}>Senha: {item.password}</Text>
-          </TouchableOpacity>
+          </View>
         </View>
         }
       />

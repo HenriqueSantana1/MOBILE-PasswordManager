@@ -14,6 +14,7 @@ export function Home() {
   const { list, add, decrypt, remove, update} = useContext(Context)
   const navigation = useNavigation()
   const [pw, setPw] = useState(null)
+  const [open, setOpen] = useState(false)
 
   useEffect(() => {
     handleList()
@@ -50,13 +51,15 @@ export function Home() {
         keyExtractor={item => item._id}
         renderItem = {({item}) =>
         <View style={styles.listContainer}>
-          <TouchableOpacity style={styles.list}>
+          <TouchableOpacity style={styles.list} onPress = {() => setOpen(prev => !prev)}>
             <Text style={styles.title}>{item.title}</Text>
           </TouchableOpacity>
-          <View style={styles.passwordView}>
+          {(!open) ? null :
+            <View style={styles.passwordView}>
             {(item.login!==undefined) ? <Text style={styles.txtPW}>Login: {item.login}</Text> : null}
             <Text style={styles.txtPW}>Senha: {item.password}</Text>
-          </View>
+            </View>
+          }
         </View>
         }
       />

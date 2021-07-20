@@ -6,8 +6,7 @@ export const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        fontFamily: theme.fonts.roboto400,
-        backgroundColor: theme.colors.light
+        fontFamily: theme.fonts.roboto400
     },
     header: {
         width: '100%',
@@ -22,16 +21,17 @@ export const styles = StyleSheet.create({
     },
     listContainer: {
         flex: 1,
-        alignItems: 'center',
+        alignItems: 'center'
     },
     list: {
         marginTop: '5%',
         width: '90%',
         alignItems: 'center',
-        borderWidth: 1,
+        borderWidth: 0.5,
         borderTopLeftRadius: 4,
         borderTopRightRadius: 4,
-        backgroundColor: theme.colors.dark,
+        backgroundColor: theme.colors.secondary,
+        borderColor: '#666',
         padding: 5
     },
     title: {
@@ -42,15 +42,18 @@ export const styles = StyleSheet.create({
     passwordView: {
         width: '90%',
         alignItems: 'center',
-        borderWidth: 1,
+        borderColor: '#666',
+        borderWidth: 0.5,
         borderTopWidth: 0,
         borderBottomLeftRadius: 4,
         borderBottomRightRadius: 4,
-        padding: 10
+        padding: 10,
+        backgroundColor: '#fff'
     },
     txtPW: {
         fontFamily: theme.fonts.roboto400,
-        fontSize: 13
+        fontSize: 13,
+        padding: 4
     },
     txtHeader: {
         color: '#333',
@@ -84,8 +87,10 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         right: 25,
         bottom: 25,
+        borderColor: '#333',
+        borderWidth: 0.5,
         borderRadius: 50,
         color: '#fff',
-        backgroundColor: theme.colors.primary
+        backgroundColor: theme.colors.secondary
     }
 });

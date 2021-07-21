@@ -14,7 +14,7 @@ export function Home() {
   const { list, add, decrypt, remove, update} = useContext(Context)
   const navigation = useNavigation()
   const [pw, setPw] = useState(null)
-  const [open, setOpen] = useState(false)
+  const [clicked, setClicked] = useState(null)
 
   useEffect(() => {
     handleList()
@@ -38,6 +38,14 @@ export function Home() {
     add('teste', 'teste', 'teste')
   }
 
+  const toggle = index => {
+    if (clicked === index) {
+      return setClicked(null)
+    }
+
+    setClicked(index)
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -49,17 +57,17 @@ export function Home() {
       <FlatList style={{flex: 1, width: '100%'}}
         data={pw}
         keyExtractor={item => item._id}
-        renderItem = {({item}) =>
+        renderItem = {({item, index}) =>
         <View style={styles.listContainer}>
-          <TouchableOpacity style={styles.list} onPress = {() => setOpen(prev => !prev)}>
+          <TouchableOpacity style={styles.list} onPress = {() => toggle(index)}>
             <Text style={styles.title}>{item.title}</Text>
           </TouchableOpacity>
-          {(!open) ? null :
+          {clicked === index ? (
             <View style={styles.passwordView}>
             {(item.login!==undefined) ? <Text style={styles.txtPW}>Login: {item.login}</Text> : null}
             <Text style={styles.txtPW}>Senha: {item.password}</Text>
             </View>
-          }
+          ) : null }
         </View>
         }
       />

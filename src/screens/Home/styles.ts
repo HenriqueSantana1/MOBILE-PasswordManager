@@ -30,7 +30,7 @@ export const styles = StyleSheet.create({
         borderWidth: 0.5,
         borderTopLeftRadius: 4,
         borderTopRightRadius: 4,
-        backgroundColor: theme.colors.secondary,
+        backgroundColor: theme.colors.primary,
         borderColor: '#666',
         padding: 5
     },
@@ -91,6 +91,6 @@ export const styles = StyleSheet.create({
         borderWidth: 0.5,
         borderRadius: 50,
         color: '#fff',
-        backgroundColor: theme.colors.secondary
+        backgroundColor: theme.colors.primary
     }
 });

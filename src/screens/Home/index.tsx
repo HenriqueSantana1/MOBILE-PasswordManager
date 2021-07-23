@@ -3,7 +3,8 @@ import {
   View,
   Text,
   TouchableOpacity,
-  FlatList
+  FlatList,
+  Button
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { styles } from './styles';
@@ -34,8 +35,12 @@ export function Home() {
     navigation.navigate('Config')
   }
 
-  async function handleAdd() {
-    add('teste', 'teste', 'teste')
+  function handleAdd() {
+    navigation.navigate('AddPassword')
+  }
+
+  function handleRemove(id:any) {
+    remove(id)
   }
 
   const toggle = index => {
@@ -66,6 +71,7 @@ export function Home() {
             <View style={styles.passwordView}>
             {(item.login!==undefined) ? <Text style={styles.txtPW}>Login: {item.login}</Text> : null}
             <Text style={styles.txtPW}>Senha: {item.password}</Text>
+            <Button title="teste" onPress={handleConfig()}><Text>Delete</Text></Button>
             </View>
           ) : null }
         </View>

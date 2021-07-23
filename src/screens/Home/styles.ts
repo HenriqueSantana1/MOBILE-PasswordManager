@@ -28,11 +28,11 @@ export const styles = StyleSheet.create({
         width: '90%',
         alignItems: 'center',
         borderWidth: 0.5,
-        borderTopLeftRadius: 4,
-        borderTopRightRadius: 4,
-        backgroundColor: theme.colors.primary,
-        borderColor: '#666',
-        padding: 5
+        borderTopLeftRadius: 3,
+        borderTopRightRadius: 3,
+        backgroundColor: theme.colors.dark,
+        borderColor: theme.colors.dark,
+        padding: 8
     },
     title: {
         fontFamily: theme.fonts.roboto700,
@@ -45,8 +45,8 @@ export const styles = StyleSheet.create({
         borderColor: '#666',
         borderWidth: 0.5,
         borderTopWidth: 0,
-        borderBottomLeftRadius: 4,
-        borderBottomRightRadius: 4,
+        borderBottomLeftRadius: 3,
+        borderBottomRightRadius: 3,
         padding: 10,
         backgroundColor: '#fff'
     },
@@ -67,7 +67,7 @@ export const styles = StyleSheet.create({
     },
     btn: {
         marginTop: '5%',
-        backgroundColor: theme.colors.primary,
+        backgroundColor: theme.colors.dark,
         width: '90%',
         height: 45,
         alignItems: 'center',
@@ -87,8 +87,6 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         right: 25,
         bottom: 25,
-        borderColor: '#333',
-        borderWidth: 0.5,
         borderRadius: 50,
         color: '#fff',
         backgroundColor: theme.colors.primary

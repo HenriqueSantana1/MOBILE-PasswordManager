@@ -12,14 +12,14 @@ import { Context } from '../../contexts/AuthContext';
 import { useNavigation } from '@react-navigation/native';
 
 export function Home() {
-  const { list, add, decrypt, remove, update} = useContext(Context)
+  const { list, decrypt, remove } = useContext(Context)
   const navigation = useNavigation()
   const [pw, setPw] = useState(null)
   const [clicked, setClicked] = useState(null)
 
   useEffect(() => {
     handleList()
-  }, [])
+  }, [pw])
 
   async function handleList() {
     let pws = await list()
@@ -40,10 +40,11 @@ export function Home() {
   }
 
   function handleRemove(id:any) {
-    remove(id)
+    //remove(id)
+    return console.log(id)
   }
 
-  const toggle = index => {
+  const toggle = (index:any) => {
     if (clicked === index) {
       return setClicked(null)
     }
@@ -71,7 +72,9 @@ export function Home() {
             <View style={styles.passwordView}>
             {(item.login!==undefined) ? <Text style={styles.txtPW}>Login: {item.login}</Text> : null}
             <Text style={styles.txtPW}>Senha: {item.password}</Text>
-            <Button title="teste" onPress={handleConfig()}><Text>Delete</Text></Button>
+            <TouchableOpacity style={styles.configIcon} onPress={() => remove(item._id).then(handleList())}>
+              <Icon size={24} name="trash" color="#333" /> 
+            </TouchableOpacity>
             </View>
           ) : null }
         </View>

@@ -17,7 +17,8 @@ export function AddPassword() {
   const [login, setLogin] = useState('')
   
   async function handleAdd() {
-    add(title, senha, login)
+    const addPw = await add(title, senha, login)
+    console.log(addPw)
     navigator.navigate('Home')
   }
 
@@ -28,9 +29,9 @@ export function AddPassword() {
   return (
     <View style={styles.container}>
           <View style={styles.containerInput}>
-            <TextInput placeholder="Title" autoCorrect={false} autoCapitalize="none" onChangeText={text => setTitle(text)} style={styles.input}/>
+            <TextInput placeholder="Title"  onChangeText={text => setTitle(text)} style={styles.input}/>
             <TextInput placeholder="Password" autoCorrect={false} autoCapitalize="none" onChangeText={text => setSenha(text)} style={styles.input}/>
-            <TextInput placeholder="Login" autoCapitalize="none" autoCorrect={false} onChangeText={text => setLogin(text)} style={styles.input}/>
+            <TextInput placeholder="Login" onChangeText={text => setLogin(text)} style={styles.input}/>
             <TouchableOpacity onPress={handleAdd} style={styles.btnSubmit}>
               <Text style={styles.txtSubmit}>Salvar</Text>
             </TouchableOpacity>

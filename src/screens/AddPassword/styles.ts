@@ -6,6 +6,7 @@ export const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
+        justifyContent: 'center',
         fontFamily: theme.fonts.roboto400,
         backgroundColor: '#fff'
     },
